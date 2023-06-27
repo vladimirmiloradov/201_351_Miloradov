@@ -32,8 +32,7 @@ int main(int argc, char *argv[])
             QJsonDocument jsonDocument(QJsonDocument::fromJson(saveData));
             QJsonObject data = jsonDocument.object();
             QJsonArray array = data["cridentials"].toArray();
-            qDebug() << array;
-            std::cout << "Enter id of social media account to get log/pass: ";
+            std::cout << "Enter id of social media account to get log/pass or -1 to exit: ";
             QTextStream cin(stdin);
             int id_user(0);
             std::cin >> id_user;
@@ -41,9 +40,14 @@ int main(int argc, char *argv[])
             {
                 return 0;
             }
+            else if (id_user > 2)
+            {
+                std::cout << "User with such id doesn't exist. Try another id.";
+            }
             else
             {
-
+                QJsonValueRef output = array[id_user];
+                qDebug() << output;
             }
         }
     }
