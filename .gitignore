@@ -1,0 +1,7 @@
+*.ilk
+*.pdb 
+moc*.cpp 
+*ui.h 
+Makefile 
+*.stash 
+*.obj
